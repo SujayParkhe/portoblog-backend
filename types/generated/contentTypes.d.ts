@@ -378,7 +378,14 @@ export interface ApiBlogBlog extends Schema.CollectionType {
     blogDescription: Attribute.Text;
     blogDate: Attribute.Date;
     slug: Attribute.UID<'api::blog.blog', 'blogTitle'>;
-    blogContent: Attribute.Blocks;
+    blogContent: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor.CKEditor',
+        {
+          output: 'Markdown';
+          preset: 'rich';
+        }
+      >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

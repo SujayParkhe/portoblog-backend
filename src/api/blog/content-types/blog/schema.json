@@ -26,7 +26,12 @@
       "targetField": "blogTitle"
     },
     "blogContent": {
-      "type": "blocks"
+      "type": "customField",
+      "options": {
+        "output": "Markdown",
+        "preset": "rich"
+      },
+      "customField": "plugin::ckeditor.CKEditor"
     }
   }
 }
